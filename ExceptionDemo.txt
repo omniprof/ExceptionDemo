@@ -1,0 +1,4 @@
+This is the contents of a file
+that is loaded into a string
+if it exists, otherwise it
+throws an exception.

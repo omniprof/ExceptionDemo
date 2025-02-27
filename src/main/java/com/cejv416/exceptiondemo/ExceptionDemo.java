@@ -30,7 +30,7 @@ public class ExceptionDemo {
         try {
             // Read a text file into a String
             // If the file does not exist an exception is thrown
-            String contents = new String(Files.readAllBytes(Paths.get("C:\\temp\\JDKPath.txt")));
+            String contents = new String(Files.readAllBytes(Paths.get("C:\\temp2\\ExceptionDemo.txt")));
             System.out.println(contents);
             
         } catch (NoSuchFileException ex) {
@@ -39,10 +39,10 @@ public class ExceptionDemo {
             // Consider what you should do if this happens
         } catch (IOException ex) { // Unknow problem access the file
             System.out.println("Caught Exception: IOException");
-            ex.printStackTrace();
+            //ex.printStackTrace();
             // Consider what you should do if this happens
         } finally {
-            System.out.println("checkedException: Code in 'finally' always runs as long as \nthe catch does not do a System.exit");
+            System.out.println("finally: checkedException: Code in 'finally' always runs as long as \nthe catch does not do a System.exit");
         }
     }
 
@@ -50,14 +50,14 @@ public class ExceptionDemo {
      * Converting a String to a number can lead to an exception
      */
     private void uncheckedException() {
-        String number = "Bob";
+        String number = "bob";
         try {
             double d = Double.parseDouble(number);
         } catch (NumberFormatException ex) {
-            System.out.println("Bad number");
+            System.out.println("NumberFormatException: Bad number");
             //ex.printStackTrace();
         } finally {
-            System.out.println("uncheckedException: Code in finally always runs as long as \nthe catch does not do a System.exit");
+            System.out.println("finally: uncheckedException: Code in finally always runs as long as \nthe catch does not do a System.exit");
         }
         System.out.println("The number is " + number);
     }
